@@ -43,15 +43,15 @@ Android中的“混淆”可以分为两部分，一部分是 Java 代码的优�
 ## 3. Proguard规则 ##
 #### 3.1 基本指令 ####
  - **-ignorewarning**：是否忽略警告
- - **-optimizationpasses 5**：指定代码的压缩级别(在0~7之间，默认为5)
+ - **-optimizationpasses n**：指定代码的压缩级别(在0~7之间，默认为5)
  - **-dontusemixedcaseclassnames**：是否使用大小写混合(windows大小写不敏感，建议加入)
  - **-dontskipnonpubliclibraryclasses**：是否混淆非公共的库的类
  - **-dontskipnonpubliclibraryclassmembers**：是否混淆非公共的库的类的成员
  - **-dontpreverify**：混淆时是否做预校验(Android不需要预校验，去掉可以加快混淆速度)
  - **-verbose**：混淆时是否记录日志(混淆后会生成映射文件)
- - **-obfuscationdictionary dictionary1.txt**：指定外部模糊字典
- - **-classobfuscationdictionary dictionary1.txt**：指定class模糊字典
- - **-packageobfuscationdictionary dictionary2.txt**：指定package模糊字典
+ - **-obfuscationdictionary dictionary_path**：指定外部模糊字典
+ - **-classobfuscationdictionary dictionary_path**：指定class模糊字典
+ - **-packageobfuscationdictionary dictionary_path**：指定package模糊字典
  - **-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable**：混淆时所采用的算法(谷歌推荐算法)
  - **-libraryjars libs(*.jar;)**:添加支持的jar(引入libs下的所有jar包)
  - **-renamesourcefileattribute SourceFile**：将文件来源重命名为“SourceFile”字符串
