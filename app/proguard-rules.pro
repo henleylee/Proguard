@@ -26,6 +26,7 @@
 # 保持注解不被混淆
 -keepattributes *Annotation*
 -keep class * extends java.lang.annotation.Annotation {*;}
+-keep interface * extends java.lang.annotation.Annotation { *; }
 
 # 保持泛型不被混淆
 -keepattributes Signature
