@@ -42,35 +42,35 @@ Android中的“混淆”可以分为两部分，一部分是 Java 代码的优�
 
 ## Proguard规则 ##
 #### 基本指令 ####
-**-ignorewarning**：是否忽略警告
-**-optimizationpasses 5**：指定代码的压缩级别(在0~7之间，默认为5)
-**-dontusemixedcaseclassnames**：是否使用大小写混合(windows大小写不敏感，建议加入)
-**-dontskipnonpubliclibraryclasses**：是否混淆非公共的库的类
-**-dontskipnonpubliclibraryclassmembers**：是否混淆非公共的库的类的成员
-**-dontpreverify**：混淆时是否做预校验(Android不需要预校验，去掉可以加快混淆速度)
-**-verbose**：混淆时是否记录日志(混淆后会生成映射文件)
-**-obfuscationdictionary dictionary1.txt**：指定外部模糊字典
-**-classobfuscationdictionary dictionary1.txt**：指定class模糊字典
-**-packageobfuscationdictionary dictionary2.txt**：指定package模糊字典
-**-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable**：混淆时所采用的算法(谷歌推荐算法)
-**-libraryjars libs(*.jar;)**:添加支持的jar(引入libs下的所有jar包)
-**-renamesourcefileattribute SourceFile**：将文件来源重命名为“SourceFile”字符串
-**-keepattributes *Annotation***：保持注解不被混淆
-**-keep class * extends java.lang.annotation.Annotation {*;}**：保持注解不被混淆
-**-keep interface * extends java.lang.annotation.Annotation { *; }**：保持注解不被混淆
-**-keepattributes Signature**：保持泛型不被混淆
-**-keepattributes EnclosingMethod**：保持反射不被混淆
-**-keepattributes Exceptions**：保持异常不被混淆
-**-keepattributes InnerClasses**：保持内部类不被混淆
-**-keepattributes SourceFile,LineNumberTable**：抛出异常时保留代码行号
+ - **-ignorewarning**：是否忽略警告
+ - **-optimizationpasses 5**：指定代码的压缩级别(在0~7之间，默认为5)
+ - **-dontusemixedcaseclassnames**：是否使用大小写混合(windows大小写不敏感，建议加入)
+ - **-dontskipnonpubliclibraryclasses**：是否混淆非公共的库的类
+ - **-dontskipnonpubliclibraryclassmembers**：是否混淆非公共的库的类的成员
+ - **-dontpreverify**：混淆时是否做预校验(Android不需要预校验，去掉可以加快混淆速度)
+ - **-verbose**：混淆时是否记录日志(混淆后会生成映射文件)
+ - **-obfuscationdictionary dictionary1.txt**：指定外部模糊字典
+ - **-classobfuscationdictionary dictionary1.txt**：指定class模糊字典
+ - **-packageobfuscationdictionary dictionary2.txt**：指定package模糊字典
+ - **-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable**：混淆时所采用的算法(谷歌推荐算法)
+ - **-libraryjars libs(*.jar;)**:添加支持的jar(引入libs下的所有jar包)
+ - **-renamesourcefileattribute SourceFile**：将文件来源重命名为“SourceFile”字符串
+ - **-keepattributes *Annotation***：保持注解不被混淆
+ - **-keep class * extends java.lang.annotation.Annotation {*;}**：保持注解不被混淆
+ - **-keep interface * extends java.lang.annotation.Annotation { *; }**：保持注解不被混淆
+ - **-keepattributes Signature**：保持泛型不被混淆
+ - **-keepattributes EnclosingMethod**：保持反射不被混淆
+ - **-keepattributes Exceptions**：保持异常不被混淆
+ - **-keepattributes InnerClasses**：保持内部类不被混淆
+ - **-keepattributes SourceFile,LineNumberTable**：抛出异常时保留代码行号
 #### 保留选项 ####
-**-keep [,modifier，...] class_specification**：指定需要保留的类和类成员（作为公共类库，应该保留所有可公开访问的public方法）
-**-keepclassmembers [,modifier，...] class_specification**：指定需要保留的类成员:变量或者方法
-**-keepclasseswithmembers [,modifier，...] class_specification**：指定保留的类和类成员，条件是所指定的类成员都存在（既在压缩阶段没有被删除的成员，效果和keep差不多）
-**-keepnames class_specification**:指定要保留名称的类和类成员，前提是在压缩阶段未被删除，仅用于模糊处理。[-keep allowshrinking class_specification 的简写]
-**-keepclassmembernames class_specification**：指定要保留名称的类成员，前提是在压缩阶段未被删除，仅用于模糊处理。[-keepclassmembers allowshrinking class_specification 的简写]
-**-keepclasseswithmembernames class_specification**：指定要保留名称的类成员，前提是在压缩阶段后所指定的类成员都存在，仅用于模糊处理。[-keepclasseswithmembers allowshrinking class_specification 的简写]
-**-printseeds [filename]**：指定详尽列出由各种-keep选项匹配的类和类成员。列表打印到标准输出或给定文件。 该列表可用于验证是否真的找到了预期的类成员，特别是如果您使用通配符。
+ - **-keep [,modifier，...] class_specification**：指定需要保留的类和类成员（作为公共类库，应该保留所有可公开访问的public方法）
+ - **-keepclassmembers [,modifier，...] class_specification**：指定需要保留的类成员:变量或者方法
+ - **-keepclasseswithmembers [,modifier，...] class_specification**：指定保留的类和类成员，条件是所指定的类成员都存在（既在压缩阶段没有被删除的成员，效果和keep差不多）
+ - **-keepnames class_specification**:指定要保留名称的类和类成员，前提是在压缩阶段未被删除，仅用于模糊处理。[-keep allowshrinking class_specification 的简写]
+ - **-keepclassmembernames class_specification**：指定要保留名称的类成员，前提是在压缩阶段未被删除，仅用于模糊处理。[-keepclassmembers allowshrinking class_specification 的简写]
+ - **-keepclasseswithmembernames class_specification**：指定要保留名称的类成员，前提是在压缩阶段后所指定的类成员都存在，仅用于模糊处理。[-keepclasseswithmembers allowshrinking class_specification 的简写]
+ - **-printseeds [filename]**：指定详尽列出由各种-keep选项匹配的类和类成员。列表打印到标准输出或给定文件。 该列表可用于验证是否真的找到了预期的类成员，特别是如果您使用通配符。
 
 ## Keep命令说明 ##
 命令 | 作用
