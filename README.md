@@ -1,4 +1,4 @@
-# Proguard-master —— Android 代码混淆规则
+# Proguard —— Android 代码混淆规则
 
 ## 1. Proguard介绍 ##
 `Android SDK`自带了混淆工具`Proguard`。它位于SDK根目录`\tools\proguard`下面。
